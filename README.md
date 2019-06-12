@@ -1,6 +1,8 @@
 # Aerolínea
 Diagrama de clases ejercicio Aerolínea para la materia Ciencias de la computación I
 
+# Integrantes
+
 * Brayan Alexander Paredes Sánchez  
 * Mateo Yate González  
 * Sebastián González Mendoza  
