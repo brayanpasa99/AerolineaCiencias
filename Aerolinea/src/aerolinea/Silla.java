@@ -16,11 +16,28 @@ public class Silla {
     boolean reservada;
     Reserva reserva;
 
-    public Silla() {
+    Silla() {
         reservada = false;
     }
 
     public void reservar() {
         reserva = new Reserva();
+    }
+
+    //gets
+    public char getColumna(){
+        return columna; 
+    }
+
+    public int getFila(){
+        return fila;
+    }
+
+    public boolean getReservada(){
+        return reservada;
+    }
+
+    public Reserva getReserva(){
+        return reserva;
     }
 }
