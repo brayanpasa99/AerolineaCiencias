@@ -34,15 +34,16 @@ public class Aerolinea extends JFrame {
         ciudades = new ArrayList<>();
         sc = new Scanner(System.in);
 
-        while (op != 7) {
+        while (op != 8) {
 
             System.out.println("1. Agregar Ciudad");
             System.out.println("2. Consultar Ciudades");
             System.out.println("3. Eliminar Ciudad");
             System.out.println("4. Agregar Vuelo");
             System.out.println("5. Consultar Vuelos");
-            System.out.println("6. Eliminar Vuelo");
-            System.out.println("7. Salir\n");
+            System.out.println("6. Reservar una silla");
+            System.out.println("7. Eliminar Vuelo");
+            System.out.println("8. Salir\n");
 
             System.out.println("Ingrese la opción: \n");
             op = sc.nextInt();
@@ -81,8 +82,17 @@ public class Aerolinea extends JFrame {
                 case 5:
                     consultarVuelos();
                     break;
-
                 case 6:
+                    System.out.println("\nIngrese id del vuelo al que desea reservar\n");
+                    consulta = sc.nextInt();
+                    for (int i = 0; i < Vuelos.size(); i++) {
+                        if (consulta.equals(Vuelos.get(i).getCodigo())){
+                            Vuelos[i].hacerReserva();
+                            break;
+                        }
+                    }
+
+                case 7:
                     System.out.println("\nIngrese el número del vuelo que desea eliminar: \n");
                     eliminaIdVuelo = sc.nextInt();
                     sc.nextLine();
@@ -116,6 +126,7 @@ public class Aerolinea extends JFrame {
 
             Vuelos.put(num_vuelos, new Vuelo(ciudades.get(c1), ciudades.get(c2)));
             num_vuelos = num_vuelos + 1;
+            
 
         } else {
 

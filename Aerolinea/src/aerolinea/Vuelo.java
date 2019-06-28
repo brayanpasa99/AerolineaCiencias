@@ -6,6 +6,7 @@
 package aerolinea;
 
 import java.util.Date;
+import java.util.Scanner;
 
 /**
  *
@@ -83,6 +84,35 @@ public class Vuelo {
 
     public void eliminarDestino() {
         this.ciudadDestino = null;
+    }
+
+    public void hacerReserva(){
+        while (op != 3){
+            System.out.println("1. Crear Reserva");
+            System.out.println("2. Eliminar Reserva");
+            System.out.println("3. Salir\n");
+
+            System.out.println("Ingrese la opción: \n");
+            op = sc.nextInt();
+            sc.nextLine();
+
+            switch (op) {
+                case 1:
+                    System.out.println("ingrese la columna");
+                    entradaColuna = sc.nextInt();
+                    System.out.println("ingrese la fila ");
+                    entradaFila = sc.nextInt();
+                    sillas[entradaColuna][entradaFila].reservar();
+                    break;
+                case 2:
+                    
+                    break;
+                default:
+                    break;
+            }
+
+
+        }
     }
 
     //Get's para cada variable respectivamente

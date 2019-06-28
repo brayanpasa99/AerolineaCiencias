@@ -16,7 +16,7 @@ public class Silla {
     boolean reservada;
     Reserva reserva;
 
-    Silla() {
+    Silla(char _columna, int _fila) {
         reservada = false;
     }
 
