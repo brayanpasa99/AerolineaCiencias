@@ -24,6 +24,7 @@ public class Silla {
 
     public void reservar() {
         reserva = new Reserva();
+        reservada = true;
     }
 
     public void eliminarReserva(){

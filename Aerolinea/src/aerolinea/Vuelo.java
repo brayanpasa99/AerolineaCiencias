@@ -5,6 +5,7 @@
  */
 package aerolinea;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -18,34 +19,27 @@ public class Vuelo {
     String[] columna = {"A", "B", "C", "D", "E"};
     int filas, capacidad, sillasDisponibles;
     Ciudad ciudadOrigen, ciudadDestino;
-    Date fechayHora;
+    LocalDateTime fechayHora;
     Vuelo vueloSiguiente, vueloAnterior;
     Silla[][] sillas;
+    Scanner sc;
     int op = 0;
 
     //Constructor vuelo que recibe la ciudad de origen y la de destino
-    public Vuelo(Ciudad ciudadOrigen, Ciudad ciudadDestino) {
+    public Vuelo(Ciudad ciudadOrigen, Ciudad ciudadDestino, LocalDateTime fecha) {
 
         agregarOrigen(ciudadOrigen);
         agregarDestino(ciudadDestino);
+        asignarFechaYHora(fecha);
         
-        /*columna[0] = 'A';
-        columna[1] = 'B';
-        columna[2] = 'C';
-        columna[3] = 'D';
-        columna[4] = 'E';*/
+        sc = new Scanner(System.in);
+        
         
         sillas = new Silla[5][14];
         
         for(int i=0; i<5; i++){
             for(int j=0; j<14; j++){
                 sillas[i][j] = new Silla(columna[i], j);
-            }
-        }
-        
-        for(int i=0; i<5; i++){
-            for(int j=0; j<14; j++){
-                System.out.println(sillas[i][j].getColumna());
             }
         }
         
@@ -60,7 +54,7 @@ public class Vuelo {
         this.codigo = 0;
     }*/
 
-    public void asignarFechaYHora(Date fecha) {
+    public void asignarFechaYHora(LocalDateTime fecha) {
         this.fechayHora = fecha;
     }
 
@@ -111,7 +105,8 @@ public class Vuelo {
     //menu para la reserva en un vuelo
     public void hacerReserva(){
         
-        Scanner sc = new Scanner(System.in);
+        op=-1;
+        
         while (op != 3){
             System.out.println("1. Crear Reserva");
             System.out.println("2. Eliminar Reserva");
@@ -129,7 +124,12 @@ public class Vuelo {
                     System.out.println("\nIngrese la fila: \n");
                     int entradaFila = sc.nextInt();
                     sc.nextLine();
-                    sillas[entradaColumna-1][entradaFila-1].reservar();
+                    if(sillas[entradaColumna-1][entradaFila-1].getReservada()){
+                        System.out.println("Silla reservada");
+                    } else {
+                        sillas[entradaColumna-1][entradaFila-1].reservar();
+                    }
+                    
                     break;
                     
                 case 2:
@@ -141,6 +141,7 @@ public class Vuelo {
                     sc.nextLine();
                     sillas[entradaColumna-1][entradaFila-1].eliminarReserva();
                     break;
+                    
                 default:
                     break;
             }
@@ -182,7 +183,7 @@ public class Vuelo {
         return ciudadDestino;
     }
 
-    public Date getFechayHora() {
+    public LocalDateTime getFechayHora() {
         return fechayHora;
     }
 
@@ -194,4 +195,9 @@ public class Vuelo {
         return vueloAnterior;
     }
 
+    public Silla[][] getSillas() {
+        return sillas;
+    }
+    
+    
 }
