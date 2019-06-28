@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class Vuelo {
 
     String avion;
-    char[] columna = {'A', 'B', 'C', 'D', 'E'};
+    String[] columna = {"A", "B", "C", "D", "E"};
     int filas, capacidad, sillasDisponibles;
     Ciudad ciudadOrigen, ciudadDestino;
     Date fechayHora;
@@ -39,12 +39,16 @@ public class Vuelo {
         
         for(int i=0; i<5; i++){
             for(int j=0; j<14; j++){
-                sillas[i][j] = new Silla("A", 5);
+                sillas[i][j] = new Silla(columna[i], j);
             }
         }
         
-        System.out.println("I'M HERE"+sillas[1][1]);
-
+        for(int i=0; i<5; i++){
+            for(int j=0; j<14; j++){
+                System.out.println(sillas[i][j].getColumna());
+            }
+        }
+        
     }
 
     //Asignaciones y eliminaciones para cada variable respectivamente
@@ -154,7 +158,7 @@ public class Vuelo {
         return avion;
     }
 
-    public char[] getColumna() {
+    public String[] getColumna() {
         return columna;
     }
 

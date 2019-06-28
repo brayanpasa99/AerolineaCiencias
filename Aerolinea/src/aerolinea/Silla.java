@@ -11,12 +11,14 @@ package aerolinea;
  */
 public class Silla {
 
-    char columna;
+    String columna;
     int fila;
     boolean reservada;
     Reserva reserva;
 
     public Silla(String _columna, int _fila) {
+        columna = _columna;
+        fila = _fila;
         reservada = false;
     }
 
@@ -29,7 +31,7 @@ public class Silla {
     }
 
     //gets
-    public char getColumna(){
+    public String getColumna(){
         return columna; 
     }
 
