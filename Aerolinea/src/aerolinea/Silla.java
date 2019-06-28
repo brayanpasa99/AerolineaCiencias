@@ -24,6 +24,10 @@ public class Silla {
         reserva = new Reserva();
     }
 
+    public void eliminarReserva(){
+        reserva = null;
+    }
+
     //gets
     public char getColumna(){
         return columna; 

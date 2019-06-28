@@ -86,6 +86,7 @@ public class Vuelo {
         this.ciudadDestino = null;
     }
 
+    //menu para la reserva en un vuelo
     public void hacerReserva(){
         while (op != 3){
             System.out.println("1. Crear Reserva");
@@ -105,7 +106,11 @@ public class Vuelo {
                     sillas[entradaColuna][entradaFila].reservar();
                     break;
                 case 2:
-                    
+                    System.out.println("ingrese la columna");
+                    entradaColuna = sc.nextInt();
+                    System.out.println("ingrese la fila ");
+                    entradaFila = sc.nextInt();
+                    sillas[entradaColuna][entradaFila].eliminarReserva();
                     break;
                 default:
                     break;
