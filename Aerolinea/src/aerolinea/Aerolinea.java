@@ -120,7 +120,7 @@ public class Aerolinea extends JFrame {
 
         if (c1 != -1 && c2 != -1) {
 
-            Vuelos.put(num_vuelos, new Vuelo(ciudades.get(c1), ciudades.get(c2),num_vuelos+1));
+            Vuelos.put(num_vuelos, new Vuelo(ciudades.get(c1), ciudades.get(c2)));
             num_vuelos = num_vuelos + 1;
             
 

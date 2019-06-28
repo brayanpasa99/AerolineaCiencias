@@ -14,9 +14,8 @@ import java.util.Scanner;
  */
 public class Vuelo {
 
-    int codigo; 
     String avion;
-    char columna[];
+    char[] columna = {'A', 'B', 'C', 'D', 'E'};
     int filas, capacidad, sillasDisponibles;
     Ciudad ciudadOrigen, ciudadDestino;
     Date fechayHora;
@@ -25,22 +24,37 @@ public class Vuelo {
     int op = 0;
 
     //Constructor vuelo que recibe la ciudad de origen y la de destino
-    public Vuelo(Ciudad ciudadOrigen, Ciudad ciudadDestino, int cod) {
+    public Vuelo(Ciudad ciudadOrigen, Ciudad ciudadDestino) {
 
         agregarOrigen(ciudadOrigen);
         agregarDestino(ciudadDestino);
-        codigo = cod;
+        
+        /*columna[0] = 'A';
+        columna[1] = 'B';
+        columna[2] = 'C';
+        columna[3] = 'D';
+        columna[4] = 'E';*/
+        
+        sillas = new Silla[5][14];
+        
+        for(int i=0; i<5; i++){
+            for(int j=0; j<14; j++){
+                sillas[i][j] = new Silla("A", 5);
+            }
+        }
+        
+        System.out.println("I'M HERE"+sillas[1][1]);
 
     }
 
     //Asignaciones y eliminaciones para cada variable respectivamente
-    public void asignarCodigo(int cod) {
+    /*public void asignarCodigo(int cod) {
         this.codigo = cod;
     }
 
     public void eliminarCodigo() {
         this.codigo = 0;
-    }
+    }*/
 
     public void asignarFechaYHora(Date fecha) {
         this.fechayHora = fecha;
@@ -106,21 +120,22 @@ public class Vuelo {
             switch (op) {
                 case 1:
                     System.out.println("ingrese la columna");
-                    int entradaColuna = sc.nextInt();
+                    int entradaColumna = sc.nextInt();
                     sc.nextLine();
                     System.out.println("ingrese la fila ");
                     int entradaFila = sc.nextInt();
                     sc.nextLine();
-                    sillas[entradaColuna][entradaFila].reservar();
+                    sillas[entradaColumna][entradaFila].reservar();
                     break;
+                    
                 case 2:
                     System.out.println("ingrese la columna");
-                    entradaColuna = sc.nextInt();
+                    entradaColumna = sc.nextInt();
                     sc.nextLine();
                     System.out.println("ingrese la fila ");
                     entradaFila = sc.nextInt();
                     sc.nextLine();
-                    sillas[entradaColuna][entradaFila].eliminarReserva();
+                    sillas[entradaColumna][entradaFila].eliminarReserva();
                     break;
                 default:
                     break;
@@ -131,9 +146,9 @@ public class Vuelo {
     }
 
     //Get's para cada variable respectivamente
-    public int getCodigo() {
+    /*public int getCodigo() {
         return codigo;
-    }
+    }*/
 
     public String getAvion() {
         return avion;
@@ -175,14 +190,4 @@ public class Vuelo {
         return vueloAnterior;
     }
 
-    //Constructor(Datos predet)
-    public Vuelo() {
-        columna[0] = 'A';
-        columna[1] = 'B';
-        columna[2] = 'C';
-        columna[3] = 'D';
-        columna[4] = 'E';
-        
-        sillas = new Silla[5][14];
-    }
 }

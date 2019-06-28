@@ -16,7 +16,7 @@ public class Silla {
     boolean reservada;
     Reserva reserva;
 
-    Silla(String _columna, int _fila) {
+    public Silla(String _columna, int _fila) {
         reservada = false;
     }
 
