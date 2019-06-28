@@ -19,7 +19,7 @@ public class Aerolinea extends JFrame {
     Integer num_vuelos;
     int op = -1;
     String nombreCiudad, ciudadOrigen, ciudadDestino;
-    int eliminaIdCiudad, eliminaIdVuelo;
+    int eliminaIdCiudad, eliminaIdVuelo, reservaVuelo;
     Scanner sc;
     /*Ciudades de las que dispone la aerolínea*/
     ArrayList<Ciudad> ciudades;
@@ -84,15 +84,9 @@ public class Aerolinea extends JFrame {
                     break;
                 case 6:
                     System.out.println("\nIngrese id del vuelo al que desea reservar\n");
-                    String consulta = sc.nextLine();
-                    for (int i = 0; i < Vuelos.size(); i++) {
-                        System.out.println(consulta + "=" + Vuelos.get(i).getCodigo());
-                        if (consulta.equals(Vuelos.get(i).getCodigo())){
-                            System.out.println("Vuelo encontrado");
-                            Vuelos.get(i).hacerReserva();
-                            break;
-                        }
-                    }
+                    reservaVuelo = sc.nextInt();
+                    sc.nextLine();
+                    Vuelos.get(reservaVuelo-1).hacerReserva();
 
                 case 7:
                     System.out.println("\nIngrese el número del vuelo que desea eliminar: \n");

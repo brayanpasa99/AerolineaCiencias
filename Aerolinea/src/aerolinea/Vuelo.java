@@ -107,15 +107,19 @@ public class Vuelo {
                 case 1:
                     System.out.println("ingrese la columna");
                     int entradaColuna = sc.nextInt();
+                    sc.nextLine();
                     System.out.println("ingrese la fila ");
                     int entradaFila = sc.nextInt();
+                    sc.nextLine();
                     sillas[entradaColuna][entradaFila].reservar();
                     break;
                 case 2:
                     System.out.println("ingrese la columna");
                     entradaColuna = sc.nextInt();
+                    sc.nextLine();
                     System.out.println("ingrese la fila ");
                     entradaFila = sc.nextInt();
+                    sc.nextLine();
                     sillas[entradaColuna][entradaFila].eliminarReserva();
                     break;
                 default:
