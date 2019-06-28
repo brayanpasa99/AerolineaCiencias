@@ -123,23 +123,23 @@ public class Vuelo {
 
             switch (op) {
                 case 1:
-                    System.out.println("ingrese la columna");
+                    System.out.println("\nIngrese la columna: \n");
                     int entradaColumna = sc.nextInt();
                     sc.nextLine();
-                    System.out.println("ingrese la fila ");
+                    System.out.println("\nIngrese la fila: \n");
                     int entradaFila = sc.nextInt();
                     sc.nextLine();
-                    sillas[entradaColumna][entradaFila].reservar();
+                    sillas[entradaColumna-1][entradaFila-1].reservar();
                     break;
                     
                 case 2:
-                    System.out.println("ingrese la columna");
+                    System.out.println("\nIngrese la columna: \n");
                     entradaColumna = sc.nextInt();
                     sc.nextLine();
-                    System.out.println("ingrese la fila ");
+                    System.out.println("\nIngrese la fila: \n");
                     entradaFila = sc.nextInt();
                     sc.nextLine();
-                    sillas[entradaColumna][entradaFila].eliminarReserva();
+                    sillas[entradaColumna-1][entradaFila-1].eliminarReserva();
                     break;
                 default:
                     break;
