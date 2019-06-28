@@ -103,7 +103,7 @@ public class Vuelo {
                     entradaColuna = sc.nextInt();
                     System.out.println("ingrese la fila ");
                     entradaFila = sc.nextInt();
-                    sillas[entradaColuna][entradaFila].reservar();
+                    sillas[entradaColumna][entradaFila].reservar();
                     break;
                 case 2:
                     System.out.println("ingrese la columna");
